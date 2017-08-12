@@ -1,0 +1,21 @@
+﻿extensions: designer.cs generated.cs
+extensions: .cs .cpp .h
+    /*
+    Compartido bajo licencias AGPL 3.0 y Creative Commons 4.0, no puede borrar los creditos,
+    y debe de mantenerlos así haga cambios y derivados:
+    Copyright (c) 2017 Javier Cañon (http://www.javiercanon.com) (http://www.javiercañon.com)
+    */
+extensions: .aspx .ascx
+<%-- 
+    Compartido bajo licencias AGPL 3.0 y Creative Commons 4.0, no puede borrar los creditos,
+    y debe de mantenerlos así haga cambios y derivados:
+    Copyright (c) 2017 Javier Cañon (http://www.javiercanon.com) (http://www.javiercañon.com)
+--%>
+extensions: .vb
+'Sample license text.
+extensions:  .xml .config .xsd .html .htm
+    <!--
+    Compartido bajo licencias AGPL 3.0 y Creative Commons 4.0, no puede borrar los creditos,
+    y debe de mantenerlos así haga cambios y derivados:
+    Copyright (c) 2017 Javier Cañon (http://www.javiercanon.com) (http://www.javiercañon.com)
+    -->

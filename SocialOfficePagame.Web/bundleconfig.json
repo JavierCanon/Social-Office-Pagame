@@ -1,0 +1,32 @@
+[
+  {
+    "outputFileName": "Content/stylesheet-1.0.0.min.css",
+    "inputFiles": [
+      "Content/stylesheet-1.0.0.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/ie10-viewport-bug-workaround.min.js",
+    "inputFiles": [
+      "Scripts/ie10-viewport-bug-workaround.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/ie10-viewport-bug-workaround.min.css",
+    "inputFiles": [
+      "Content/ie10-viewport-bug-workaround.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jquery.validate.additional-methods-1.17.0.min.js",
+    "inputFiles": [
+      "Scripts/jquery.validate.additional-methods-1.17.0.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jquery.validate-1.17.0.min.js",
+    "inputFiles": [
+      "Scripts/jquery.validate-1.17.0.js"
+    ]
+  }
+]

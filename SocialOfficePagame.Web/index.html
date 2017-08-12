@@ -1,0 +1,404 @@
+﻿<!DOCTYPE html>
+<!--
+Compartido bajo licencias AGPL 3.0 y Creative Commons 4.0, no puede borrar los creditos,
+y debe de mantenerlos así haga cambios y derivados:
+Copyright (c) 2017 Javier Cañon (http://www.javiercanon.com) (http://www.javiercañon.com)
+-->
+<html lang="es">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="es" http-equiv='content-language' />
+    <meta content='Javier Cañon' name='author' />
+    <meta name="robots" content="nofollow">
+
+    <title>Pagos Online</title>
+    <link rel="icon" href="favicon.ico">
+
+    <link href="Content/bootstrap.min.css?v=3.3.7" rel="stylesheet" />
+    <link href="Content/stylesheet-1.0.0.css" rel="stylesheet" />
+    <link href="Content/ie10-viewport-bug-workaround.min.css" rel="stylesheet" />
+    <script>
+        /*
+        >>> EDITE LAS SIGUIENTES VARIABLES PARA PERSONALIZAR SU PAGINA DE PAGOS:
+        */
+        var titulo = "Pagos Online";
+        var tituloURL = "http://www.javiercañon.com";
+        var contactoURL = "http://www.javiercañon.com";
+
+        // habilitar pasarelas true o false:
+        var payulatam = true;
+        var mercadopago = true;
+        var paypal = true;
+        var skrill = true;
+        var epayco = true;
+        
+        /*
+        <<< FIN
+        */
+
+        function setupPage() {
+
+            $("#brandName").html(titulo);
+            $("#brandName").attr("href", tituloURL);
+            $("#contact").attr("href", contactoURL);
+
+            if (payulatam){
+                var option = new Option("PayuLatam", "PayuLatam"); $('#selectGateway').append($(option));
+                $('#tabPayuLatam').removeClass('hidden')
+            }
+
+            if (mercadopago) {
+                var option = new Option("MercadoPago", "MercadoPago"); $('#selectGateway').append($(option));
+                $('#tabMercadoPago').removeClass('hidden')
+            }
+
+            if (epayco) {
+                var option = new Option("Epayco", "Epayco"); $('#selectGateway').append($(option));
+                $('#tabEpayco').removeClass('hidden')
+            }
+            
+            if (paypal) {
+                var option = new Option("Paypal", "Paypal"); $('#selectGateway').append($(option));
+                $('#tabPaypal').removeClass('hidden')
+            }
+
+            if (skrill) {
+                var option = new Option("Skrill", "Skrill"); $('#selectGateway').append($(option));
+                $('#tabSkrill').removeClass('hidden')
+            }
+
+            $.validator.setDefaults({
+                submitHandler: function () {
+                    // alert("submitted!");
+                    goPay();
+                    return false;
+                }
+            });
+
+
+            $(document).ready(function () {
+
+                validatedForm = $("#payForm1").validate({
+                    rules: {
+                        firstname1: {
+                            required: true,
+                            minlength: 3
+                        },
+                        lastname1: {
+                            required: true,
+                            minlength: 3
+                        },
+                        referencia1: {
+                            required: true,
+                            minlength: 2
+                        },
+                        email1: {
+                            required: true,
+                            minlength: 5,
+                            email: true
+                        },
+                        confirm_email1: {
+                            required: true,
+                            minlength: 5,
+                            equalTo: "#email1"
+                        },
+                        selectGateway: {
+                            required: true
+                        },
+                        agree1: {
+                            required: true
+                        }
+                    },
+                    messages: {
+                        firstname1: {
+                            required: "Valor requerido",
+                            minlength: "Mínimo 2 caracteres"
+                        },
+                        lastname1: {
+                            required: "Valor requerido",
+                            minlength: "Mínimo 2 caracteres"
+                        },
+                        referencia1: {
+                            required: "Valor requerido",
+                            minlength: "Mínimo 2 caracteres"
+                        },
+                        email1: {
+                            required: "Valor requerido",
+                            minlength: "Mínimo 5 caracteres",
+                            email: "Email no valido"
+                        },
+                        confirm_email1: {
+                            required: "Valor requerido",
+                            minlength: "Mínimo 5 caracteres",
+                            equalTo: "Texto o valor no concuerda con el anterior"
+                        },
+                        selectGateway: {
+                            required: "Seleccione una opción"
+                        },
+                        agree1: {
+                            required: "Acepte las políticas"
+                        }
+                    },
+                    errorElement: "em",
+                    errorPlacement: function (error, element) {
+                        error.addClass("help-block");
+                        element.parents(".col-sm-5").addClass("has-feedback");
+
+                        if (element.prop("type") === "checkbox") {
+                            error.insertAfter(element.parent("label"));
+                        } else {
+                            error.insertAfter(element);
+                        }
+
+                        if (!element.next("span")[0]) {
+                            $("<span class='glyphicon glyphicon-remove form-control-feedback'></span>").insertAfter(element);
+                        }
+                    },
+                    success: function (label, element) {
+                        if (!$(element).next("span")[0]) {
+                            $("<span class='glyphicon glyphicon-ok form-control-feedback'></span>").insertAfter($(element));
+                        }
+                    },
+                    highlight: function (element, errorClass, validClass) {
+                        $(element).parents(".col-sm-5").addClass("has-error").removeClass("has-success");
+                        $(element).next("span").addClass("glyphicon-remove").removeClass("glyphicon-ok");
+                    },
+                    unhighlight: function (element, errorClass, validClass) {
+                        $(element).parents(".col-sm-5").addClass("has-success").removeClass("has-error");
+                        $(element).next("span").addClass("glyphicon-ok").removeClass("glyphicon-remove");
+                    }
+                });
+
+            });
+
+        }
+
+        var validatedForm;
+        var formvalid = false;
+
+        function goPay() {
+
+            formvalid = validatedForm.valid();
+            //alert(formvalid);
+            if (!formvalid) return;
+
+        }
+
+    </script>
+
+    <script type="text/javascript">
+    </script>
+
+</head>
+<body onload="setupPage()">
+
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" id="brandName" href="/" target="_blank">Pagos Online</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#contact">Contáctenos</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="jumbotron bg-success">
+            <h1>Pagos Online</h1>
+            <div class="pull-left"><i class="glyphicon glyphicon-lock" style="font-size: 40pt; padding: 10px; color:white;"></i></div>
+            <img class="img-responsive img-rounded" src="Content/logo.png" />
+            <p class="lead">Bienvenido a nuestro sistema seguro de pagos online.</p>
+            <p class="lead">Siga los siguientes pasos sencillos que lo llevaran a la respectiva pasarela segura de pago:</p>
+        </div>
+
+
+        <div class="row smpl-step" style="border-bottom: 0;">
+            <div class="col-xs-3 smpl-step-step complete">
+                <div class="text-center smpl-step-num">Paso 1</div>
+                <div class="progress">
+                    <div class="progress-bar"></div>
+                </div>
+                <a class="smpl-step-icon"><i class="glyphicon glyphicon-open-file"></i></a>
+                <div class="smpl-step-info text-center">Ingrese los datos de pago.</div>
+            </div>
+
+            <div class="col-xs-3 smpl-step-step complete">
+                <div class="text-center smpl-step-num">Paso 2</div>
+                <div class="progress">
+                    <div class="progress-bar"></div>
+                </div>
+                <a class="smpl-step-icon"><i class="glyphicon glyphicon-credit-card"></i></a>
+                <div class="smpl-step-info text-center">Seleccione y realice el pago por la pasarela de pagos seleccionada.</div>
+            </div>
+            <div class="col-xs-3 smpl-step-step active">
+                <div class="text-center smpl-step-num">Paso 3</div>
+                <div class="progress">
+                    <div class="progress-bar"></div>
+                </div>
+                <a class="smpl-step-icon"><i class="glyphicon glyphicon-envelope"></i></a>
+                <div class="smpl-step-info text-center">Espere en su correo mensaje de confirmación de la pasarela, banco y de nosotros, una vez se acredite el pago.</div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-xs-12 col-md-12 col-lg-12">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Datos del Pago</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <form id="payForm1" method="post" class="form-horizontal" action="">
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="firstname1">Nombre</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="firstname1" name="firstname1"
+                                           placeholder="Nombre" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="lastname1">Apellido</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="lastname1" name="lastname1"
+                                           placeholder="Apellido" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="referencia1">Referencia de pago</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="referencia1" name="referencia1" placeholder="Referencia de pago (recibo, factura, pin, etc)" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="email1">Email</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="email1" name="email1" placeholder="Email" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="confirm_email1">Confirmar Email</label>
+                                <div class="col-sm-5">
+                                    <input type="password" class="form-control" id="confirm_email1" name="confirm_email1" placeholder="Confirmar email" />
+                                </div>
+                            </div>
+
+                            <div class="tabinfo">
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs bg-success" role="tablist">
+                                    <li role="presentation" id="tabPayuLatam" class="hidden"><a href="#PayuLatam" aria-controls="PayuLatam" role="tab" data-toggle="tab">PayuLatam?</a></li>
+                                    <li role="presentation" id="tabEpayco" class="hidden"><a href="#Epayco" aria-controls="Epayco" role="tab" data-toggle="tab">Epayco?</a></li>
+                                    <li role="presentation" id="tabMercadoPago" class="hidden"><a href="#MercadoPago" aria-controls="MercadoPago" role="tab" data-toggle="tab">MercadoPago?</a></li>
+                                    <li role="presentation" id="tabPaypal" class="hidden"><a href="#Paypal" aria-controls="Paypal" role="tab" data-toggle="tab">Paypal?</a></li>
+                                    <li role="presentation" id="tabSkrill" class="hidden"><a href="#Skrill" aria-controls="Skrill" role="tab" data-toggle="tab">Skrill?</a></li>
+                                </ul>
+
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade" id="PayuLatam">
+                                        <img class="img-responsive" src="https://www.payulatam.com/wp-content/uploads/2017/02/payu@2x.png" />
+                                        <p>Pagos con: tarjetas de crédito, pagos en efectivo en sitios autorizados, cuentas bancarias.</p>
+                                        <p><a href="https://www.payulatam.com/medios-de-pago/" target="_blank">Revisar en el sitio.</a></p>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="Epayco">
+                                        <img class="img-responsive" src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/epayco_pago_seguro_black.png" />
+                                        <p>Pagos con: tarjetas de crédito, pagos en efectivo en sitios autorizados, cuentas bancarias.</p>
+                                        <p><a href="https://epayco.co/medios_de_pago_epayco.php" target="_blank">Revisar en el sitio.</a></p>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="Paypal">
+                                        <img class="img-responsive" src="https://www.paypalobjects.com/webstatic/en_US/mktg/pages/stories/pp_h_rgb.jpg" />
+                                        <p>Pagos con: tarjetas de crédito, saldo de Paypal.</p>
+                                        <p><a href="https://www.paypal.com/co/webapps/mpp/pay-online" target="_blank">Revisar en el sitio.</a></p>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="Skrill">
+                                        <img class="img-responsive" src="https://www.skrill.com/fileadmin/templates/images/skrill-logo-gradient.svg" />
+                                        <p>Pagos con: tarjetas de crédito, saldo de Skrill.</p>
+                                        <p><a href="https://www.skrill.com/es/support#/path/PAGOS/Dep%c3%b3sitos-Fondos-entrantes/906651532/-Qu%c3%a9-opciones-de-dep%c3%b3sito-ofrece-Skrill.htm" target="_blank">Revisar en el sitio.</a></p>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="MercadoPago">
+                                        <img class="img-responsive" src="https://secure.mlstatic.com/components/resources/mp/desktop/css/assets/desktop-logo-mercadopago.png" />
+                                        <p>Pagos con: tarjetas de crédito, pagos en efectivo en sitios autorizados, cuentas bancarias.</p>
+                                        <p><a href="https://www.mercadopago.com.co/pagar-compras-online" target="_blank">Revisar en el sitio.</a></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="selectGateway">Seleccione una pasarela</label>
+                                <div class="col-sm-5">
+                                    <select id="selectGateway" name="selectGateway" class="form-control">
+                                        <option value="" selected>Seleccione una Opción</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-5 col-sm-offset-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="agree1" name="agree1" value="true">
+                                            Acepto las políticas de pagos.
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-9 col-sm-offset-4">
+                                    <button type="submit" class="btn btn-primary btn-lg" id="btnPay">Iniciar el Proceso de Pago</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row center-block">
+                <!--
+                Compartido bajo licencias AGPL 3.0 y Creative Commons 4.0, no puede borrar los creditos,
+                y debe de mantenerlos así haga cambios y derivados:
+                Copyright (c) 2017 Javier Cañon (http://www.javiercanon.com) (http://www.javiercañon.com)
+                -->
+
+                <p class="text-center" id="copy">By &copy; <a href="http://www.javiercañon.com" target="_blank">Social Office Pagame</a> - <a href="https://creativecommons.org/licenses/by/4.0/deed.es" target="_blank">Licencia &copy;&copy; 4.0</a></p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js?v=3.3.7"></script>
+    <script src="Scripts/ie10-viewport-bug-workaround.min.js"></script>
+    <script src="Scripts/jquery.validate-1.17.0.min.js"></script>
+    <!--
+    Compartido bajo licencias AGPL 3.0 y Creative Commons 4.0, no puede borrar los creditos,
+    y debe de mantenerlos así haga cambios y derivados:
+    Copyright (c) 2017 Javier Cañon (http://www.javiercanon.com) (http://www.javiercañon.com)
+    -->
+</body>
+</html>
