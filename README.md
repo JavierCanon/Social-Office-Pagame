@@ -26,11 +26,30 @@ Si desea personalización o ayuda en la instalación puede contactarme (http://w
 
 ## PASARELAS DE PAGOS CONFIGURADAS Y PROBADAS ##
 
-* PAYULATAM
+* PAYULATAM 
 * MERCADOPAGO
 * EPAYCO
 * PAYPAL
-* SKRILL
+* (pendiente) SKRILL
+
+## Comparar Opciones de Integración de Pasarelas ##
+
+Cada opción funciona con todos los tipos de empresas, incluidas las de venta al por menor, venta de boletos para eventos, servicios basados en suscripciones, organizaciones sin fines de lucro, entre otras.
+
+### Opción Avanzada ### 
+Seleccione una solución de comercio electrónico que ya esté integrada, usando API's y SDK's	
+
+* ¿Es la opción indicada para mí?: Desea colaborar con un proveedor de soluciones de comercio electrónico para procesar todos los pagos, incluidos los pagos con tarjeta de crédito.	
+* ¿Necesito tener conocimientos de programación?: No necesita conocimientos de programación si utiliza un plugin ya desarrollado, pero si cuando es una integración o solución personalizada.
+* ¿Cómo empiezo?	Consulte la guía de partners o simplemente siga las instrucciones de su solución de comercio electrónico.
+
+### Opción Basica ### 
+Cree botones de pago utilizando HTML
+
+* ¿Es la opción indicada para mí?: Desea procesar todos los pagos, incluidos los pagos con tarjeta de crédito, agregando los botones usted mismo.
+* ¿Necesito tener conocimientos de programación?: Necesitará conocimientos básicos de HTML.
+* ¿Cómo empiezo?: Cree un botón con nuestra herramienta de botones HTML en línea.
+
 
 ## Community ##
 

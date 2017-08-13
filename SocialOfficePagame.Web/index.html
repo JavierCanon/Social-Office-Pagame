@@ -6,6 +6,7 @@ Copyright (c) 2017 Javier Cañon (http://www.javiercanon.com) (http://www.javier
 -->
 <html lang="es">
 <head>
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="es" http-equiv='content-language' />
@@ -30,9 +31,9 @@ Copyright (c) 2017 Javier Cañon (http://www.javiercanon.com) (http://www.javier
         var payulatam = true;
         var mercadopago = true;
         var paypal = true;
-        var skrill = true;
+        var skrill = false;
         var epayco = true;
-        
+
         /*
         <<< FIN
         */
@@ -43,29 +44,53 @@ Copyright (c) 2017 Javier Cañon (http://www.javiercanon.com) (http://www.javier
             $("#brandName").attr("href", tituloURL);
             $("#contact").attr("href", contactoURL);
 
-            if (payulatam){
+            if (payulatam) {
                 var option = new Option("PayuLatam", "PayuLatam"); $('#selectGateway').append($(option));
-                $('#tabPayuLatam').removeClass('hidden')
+                $('#tabPayuLatam').removeClass('hidden');
+
+                $.get("Buttons/payulatam.html", function (data) {
+                    $("#formPayuLatam").html(data);
+                });
             }
 
             if (mercadopago) {
                 var option = new Option("MercadoPago", "MercadoPago"); $('#selectGateway').append($(option));
-                $('#tabMercadoPago').removeClass('hidden')
+                $('#tabMercadoPago').removeClass('hidden');
+
+                $.get("Buttons/mercadopago.html", function (data) {
+                    $("#formMercadoPago").html(data);
+                });
+
             }
 
             if (epayco) {
                 var option = new Option("Epayco", "Epayco"); $('#selectGateway').append($(option));
-                $('#tabEpayco').removeClass('hidden')
+                $('#tabEpayco').removeClass('hidden');
+
+                $.get("Buttons/epayco.html", function (data) {
+                    $("#formEpayco").html(data);
+                });
+
             }
-            
+
             if (paypal) {
                 var option = new Option("Paypal", "Paypal"); $('#selectGateway').append($(option));
-                $('#tabPaypal').removeClass('hidden')
+                $('#tabPaypal').removeClass('hidden');
+
+                $.get("Buttons/paypal.html", function (data) {
+                    $("#formPaypal").html(data);
+                });
+
             }
 
             if (skrill) {
                 var option = new Option("Skrill", "Skrill"); $('#selectGateway').append($(option));
-                $('#tabSkrill').removeClass('hidden')
+                $('#tabSkrill').removeClass('hidden');
+
+                $.get("Buttons/skrill.html", function (data) {
+                    $("#formSkrill").html(data);
+                });
+
             }
 
             $.validator.setDefaults({
@@ -104,7 +129,7 @@ Copyright (c) 2017 Javier Cañon (http://www.javiercanon.com) (http://www.javier
                             equalTo: "#email1"
                         },
                         selectGateway: {
-                            required: true
+                            required: false
                         },
                         agree1: {
                             required: true
@@ -182,12 +207,9 @@ Copyright (c) 2017 Javier Cañon (http://www.javiercanon.com) (http://www.javier
             formvalid = validatedForm.valid();
             //alert(formvalid);
             if (!formvalid) return;
-
+            $("#payOptions").removeClass("hidden");
         }
 
-    </script>
-
-    <script type="text/javascript">
     </script>
 
 </head>
@@ -301,55 +323,6 @@ Copyright (c) 2017 Javier Cañon (http://www.javiercanon.com) (http://www.javier
                                 </div>
                             </div>
 
-                            <div class="tabinfo">
-                                <!-- Nav tabs -->
-                                <ul class="nav nav-tabs bg-success" role="tablist">
-                                    <li role="presentation" id="tabPayuLatam" class="hidden"><a href="#PayuLatam" aria-controls="PayuLatam" role="tab" data-toggle="tab">PayuLatam?</a></li>
-                                    <li role="presentation" id="tabEpayco" class="hidden"><a href="#Epayco" aria-controls="Epayco" role="tab" data-toggle="tab">Epayco?</a></li>
-                                    <li role="presentation" id="tabMercadoPago" class="hidden"><a href="#MercadoPago" aria-controls="MercadoPago" role="tab" data-toggle="tab">MercadoPago?</a></li>
-                                    <li role="presentation" id="tabPaypal" class="hidden"><a href="#Paypal" aria-controls="Paypal" role="tab" data-toggle="tab">Paypal?</a></li>
-                                    <li role="presentation" id="tabSkrill" class="hidden"><a href="#Skrill" aria-controls="Skrill" role="tab" data-toggle="tab">Skrill?</a></li>
-                                </ul>
-
-                                <!-- Tab panes -->
-                                <div class="tab-content">
-                                    <div role="tabpanel" class="tab-pane fade" id="PayuLatam">
-                                        <img class="img-responsive" src="https://www.payulatam.com/wp-content/uploads/2017/02/payu@2x.png" />
-                                        <p>Pagos con: tarjetas de crédito, pagos en efectivo en sitios autorizados, cuentas bancarias.</p>
-                                        <p><a href="https://www.payulatam.com/medios-de-pago/" target="_blank">Revisar en el sitio.</a></p>
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="Epayco">
-                                        <img class="img-responsive" src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/epayco_pago_seguro_black.png" />
-                                        <p>Pagos con: tarjetas de crédito, pagos en efectivo en sitios autorizados, cuentas bancarias.</p>
-                                        <p><a href="https://epayco.co/medios_de_pago_epayco.php" target="_blank">Revisar en el sitio.</a></p>
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="Paypal">
-                                        <img class="img-responsive" src="https://www.paypalobjects.com/webstatic/en_US/mktg/pages/stories/pp_h_rgb.jpg" />
-                                        <p>Pagos con: tarjetas de crédito, saldo de Paypal.</p>
-                                        <p><a href="https://www.paypal.com/co/webapps/mpp/pay-online" target="_blank">Revisar en el sitio.</a></p>
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="Skrill">
-                                        <img class="img-responsive" src="https://www.skrill.com/fileadmin/templates/images/skrill-logo-gradient.svg" />
-                                        <p>Pagos con: tarjetas de crédito, saldo de Skrill.</p>
-                                        <p><a href="https://www.skrill.com/es/support#/path/PAGOS/Dep%c3%b3sitos-Fondos-entrantes/906651532/-Qu%c3%a9-opciones-de-dep%c3%b3sito-ofrece-Skrill.htm" target="_blank">Revisar en el sitio.</a></p>
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="MercadoPago">
-                                        <img class="img-responsive" src="https://secure.mlstatic.com/components/resources/mp/desktop/css/assets/desktop-logo-mercadopago.png" />
-                                        <p>Pagos con: tarjetas de crédito, pagos en efectivo en sitios autorizados, cuentas bancarias.</p>
-                                        <p><a href="https://www.mercadopago.com.co/pagar-compras-online" target="_blank">Revisar en el sitio.</a></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-4 control-label" for="selectGateway">Seleccione una pasarela</label>
-                                <div class="col-sm-5">
-                                    <select id="selectGateway" name="selectGateway" class="form-control">
-                                        <option value="" selected>Seleccione una Opción</option>
-                                    </select>
-                                </div>
-                            </div>
-
                             <div class="form-group">
                                 <div class="col-sm-5 col-sm-offset-4">
                                     <div class="checkbox">
@@ -361,9 +334,74 @@ Copyright (c) 2017 Javier Cañon (http://www.javiercanon.com) (http://www.javier
                                 </div>
                             </div>
 
+
                             <div class="form-group">
                                 <div class="col-sm-9 col-sm-offset-4">
-                                    <button type="submit" class="btn btn-primary btn-lg" id="btnPay">Iniciar el Proceso de Pago</button>
+                                    <button type="submit" class="btn btn-primary btn-lg" id="btnPay">Seleccionar Pasarela de Pago</button>
+                                </div>
+                            </div>
+                            
+                            <div id="payOptions" class="hidden">
+                                <h2>Seleccione Pasarela de Pagos</h2>
+                                
+                                <div class="tabinfo">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs bg-success" role="tablist">
+                                        <li role="presentation" id="tabPayuLatam" class="hidden"><a href="#PayuLatam" aria-controls="PayuLatam" role="tab" data-toggle="tab">PayuLatam</a></li>
+                                        <li role="presentation" id="tabEpayco" class="hidden"><a href="#Epayco" aria-controls="Epayco" role="tab" data-toggle="tab">Epayco</a></li>
+                                        <li role="presentation" id="tabMercadoPago" class="hidden"><a href="#MercadoPago" aria-controls="MercadoPago" role="tab" data-toggle="tab">MercadoPago</a></li>
+                                        <li role="presentation" id="tabPaypal" class="hidden"><a href="#Paypal" aria-controls="Paypal" role="tab" data-toggle="tab">Paypal</a></li>
+                                        <li role="presentation" id="tabSkrill" class="hidden"><a href="#Skrill" aria-controls="Skrill" role="tab" data-toggle="tab">Skrill</a></li>
+                                    </ul>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade" id="PayuLatam">
+                                            <img class="img-responsive" src="https://www.payulatam.com/wp-content/uploads/2017/02/payu@2x.png" />
+                                            <p>Pagos con: tarjetas de crédito, pagos en efectivo en sitios autorizados, cuentas bancarias.</p>
+                                            <p><a href="https://www.payulatam.com/medios-de-pago/" target="_blank">Revisar en el sitio.</a></p>
+
+                                            <div id="formPayuLatam" class="form-inline"></div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="Epayco">
+                                            <img class="img-responsive" src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/epayco_pago_seguro_black.png" />
+                                            <p>Pagos con: tarjetas de crédito, pagos en efectivo en sitios autorizados, cuentas bancarias.</p>
+                                            <p><a href="https://epayco.co/medios_de_pago_epayco.php" target="_blank">Revisar en el sitio.</a></p>
+
+                                            <div id="formEpayco" class="form-inline"></div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="Paypal">
+                                            <img class="img-responsive" src="Content/paypal.png" />
+                                            <p>Pagos con: tarjetas de crédito, saldo de Paypal.</p>
+                                            <p><a href="https://www.paypal.com/co/webapps/mpp/pay-online" target="_blank">Revisar en el sitio.</a></p>
+
+                                            <div id="formPaypal" class="form-inline"></div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="Skrill">
+                                            <img class="img-responsive" src="https://www.skrill.com/fileadmin/templates/images/skrill-logo-gradient.svg" />
+                                            <p>Pagos con: tarjetas de crédito, saldo de Skrill.</p>
+                                            <p><a href="https://www.skrill.com/es/support#/path/PAGOS/Dep%c3%b3sitos-Fondos-entrantes/906651532/-Qu%c3%a9-opciones-de-dep%c3%b3sito-ofrece-Skrill.htm" target="_blank">Revisar en el sitio.</a></p>
+
+                                            <div id="formSkrill" class="form-inline"></div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="MercadoPago">
+                                            <img class="img-responsive" src="https://secure.mlstatic.com/components/resources/mp/desktop/css/assets/desktop-logo-mercadopago.png" />
+                                            <p>Pagos con: tarjetas de crédito, pagos en efectivo en sitios autorizados, cuentas bancarias.</p>
+                                            <p><a href="https://www.mercadopago.com.co/pagar-compras-online" target="_blank">Revisar en el sitio.</a></p>
+
+                                            <div id="formMercadoPago" class="form-inline"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group hidden">
+                                <label class="col-sm-4 control-label" for="selectGateway">Seleccione una pasarela</label>
+                                <div class="col-sm-5">
+                                    <select id="selectGateway" name="selectGateway" class="form-control">
+                                        <option value="" selected>Seleccione una Opción</option>
+                                    </select>
                                 </div>
                             </div>
 

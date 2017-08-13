@@ -57,10 +57,31 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Buttons\payulatam.html" />
+    <Content Include="Buttons\mercadopago.html" />
+    <Content Include="Buttons\epayco.html" />
+    <Content Include="Buttons\skrill.html" />
+    <Content Include="Buttons\paypal.html" />
     <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-theme.css.map">
+      <DependentUpon>bootstrap-theme.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-theme.min.css">
+      <DependentUpon>bootstrap-theme.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-theme.min.css.map">
+      <DependentUpon>bootstrap-theme.css</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.css.map">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap.min.css">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap.min.css.map">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
     <Content Include="Content\ie10-viewport-bug-workaround.min.css">
       <DependentUpon>ie10-viewport-bug-workaround.css</DependentUpon>
     </Content>
@@ -72,33 +93,39 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="index.html" />
     <Content Include="index.php" />
+    <Content Include="instrucciones.html" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\stylesheet-1.0.0.css" />
     <None Include="bundleconfig.json" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.min.js">
+      <DependentUpon>bootstrap.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery-3.1.1.min.js">
+      <DependentUpon>jquery-3.1.1.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery-3.1.1.min.map">
+      <DependentUpon>jquery-3.1.1.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js">
+      <DependentUpon>jquery-3.1.1.slim.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jquery.validate-1.17.0.min.js">
       <DependentUpon>jquery.validate-1.17.0.js</DependentUpon>
     </Content>
     <Content Include="Scripts\jquery.validate.additional-methods-1.17.0.js" />
     <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\ie10-viewport-bug-workaround.css" />
     <Content Include="Scripts\ie10-viewport-bug-workaround.js" />
     <Content Include="Scripts\ie10-viewport-bug-workaround.min.js">
       <DependentUpon>ie10-viewport-bug-workaround.js</DependentUpon>
     </Content>
     <Content Include="Scripts\jquery-3.1.1.js" />
-    <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate-1.17.0.js" />
     <Content Include="Scripts\jquery.validate.additional-methods-1.17.0.min.js">
@@ -112,7 +139,6 @@
   <ItemGroup>
     <Content Include="SocialOfficePagame.Web.licenseheader" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.1.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
