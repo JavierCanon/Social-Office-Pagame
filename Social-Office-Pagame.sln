@@ -5,24 +5,106 @@ VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{29D4817E-6D30-47BC-998C-23EF44185852}"
 	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		ACKNOWLEDGMENTS.md = ACKNOWLEDGMENTS.md
+		AUTHORS.md = AUTHORS.md
+		CHANGELOG.md = CHANGELOG.md
+		CODE_OF_CONDUCT.md = CODE_OF_CONDUCT.md
 		LICENSE = LICENSE
 		README.md = README.md
+		RELEASE.md = RELEASE.md
+		ROADMAP.md = ROADMAP.md
+		Social-Office-Pagame.sln.licenseheader = Social-Office-Pagame.sln.licenseheader
+		TODO.md = TODO.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialOfficePagame.Web", "SocialOfficePagame.Web\SocialOfficePagame.Web.csproj", "{6B740A40-AB22-436B-B51C-1A3FDECD0E31}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SO.Pagame.html5", "src\SO.Pagame.html5\SO.Pagame.html5.csproj", "{6B740A40-AB22-436B-B51C-1A3FDECD0E31}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SO.Pagame.Database", "src\SO.Pagame.Database\SO.Pagame.Database.sqlproj", "{D1D177F7-BAF8-4774-8466-3D599C7022A1}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "docs", "docs\", "{2E72430B-FF34-44DC-8F44-1CD40B186D99}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_51466"
+		Debug.AspNetCompiler.PhysicalPath = "docs\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51466\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_51466"
+		Release.AspNetCompiler.PhysicalPath = "docs\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51466\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "51466"
+		SlnRelativePath = "docs\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SO.Web", "..\Social-Office-SCRM\src\SO.Web\SO.Web.csproj", "{CF0D0B86-BA02-445A-98C3-806CA96FEF75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SO.Pagame.Web", "src\SO.Pagame.Web\SO.Pagame.Web.csproj", "{FECCEAE7-F348-4F34-945A-5663D0D8107A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{6B740A40-AB22-436B-B51C-1A3FDECD0E31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6B740A40-AB22-436B-B51C-1A3FDECD0E31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B740A40-AB22-436B-B51C-1A3FDECD0E31}.Debug|x64.ActiveCfg = Debug|x64
+		{6B740A40-AB22-436B-B51C-1A3FDECD0E31}.Debug|x64.Build.0 = Debug|x64
 		{6B740A40-AB22-436B-B51C-1A3FDECD0E31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B740A40-AB22-436B-B51C-1A3FDECD0E31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B740A40-AB22-436B-B51C-1A3FDECD0E31}.Release|x64.ActiveCfg = Release|x64
+		{6B740A40-AB22-436B-B51C-1A3FDECD0E31}.Release|x64.Build.0 = Release|x64
+		{D1D177F7-BAF8-4774-8466-3D599C7022A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1D177F7-BAF8-4774-8466-3D599C7022A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1D177F7-BAF8-4774-8466-3D599C7022A1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D1D177F7-BAF8-4774-8466-3D599C7022A1}.Debug|x64.ActiveCfg = Debug|x64
+		{D1D177F7-BAF8-4774-8466-3D599C7022A1}.Debug|x64.Build.0 = Debug|x64
+		{D1D177F7-BAF8-4774-8466-3D599C7022A1}.Debug|x64.Deploy.0 = Debug|x64
+		{D1D177F7-BAF8-4774-8466-3D599C7022A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1D177F7-BAF8-4774-8466-3D599C7022A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1D177F7-BAF8-4774-8466-3D599C7022A1}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D1D177F7-BAF8-4774-8466-3D599C7022A1}.Release|x64.ActiveCfg = Release|x64
+		{D1D177F7-BAF8-4774-8466-3D599C7022A1}.Release|x64.Build.0 = Release|x64
+		{D1D177F7-BAF8-4774-8466-3D599C7022A1}.Release|x64.Deploy.0 = Release|x64
+		{2E72430B-FF34-44DC-8F44-1CD40B186D99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E72430B-FF34-44DC-8F44-1CD40B186D99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E72430B-FF34-44DC-8F44-1CD40B186D99}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2E72430B-FF34-44DC-8F44-1CD40B186D99}.Debug|x64.Build.0 = Debug|Any CPU
+		{2E72430B-FF34-44DC-8F44-1CD40B186D99}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E72430B-FF34-44DC-8F44-1CD40B186D99}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{2E72430B-FF34-44DC-8F44-1CD40B186D99}.Release|x64.ActiveCfg = Debug|Any CPU
+		{2E72430B-FF34-44DC-8F44-1CD40B186D99}.Release|x64.Build.0 = Debug|Any CPU
+		{CF0D0B86-BA02-445A-98C3-806CA96FEF75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF0D0B86-BA02-445A-98C3-806CA96FEF75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF0D0B86-BA02-445A-98C3-806CA96FEF75}.Debug|x64.ActiveCfg = Debug|x64
+		{CF0D0B86-BA02-445A-98C3-806CA96FEF75}.Debug|x64.Build.0 = Debug|x64
+		{CF0D0B86-BA02-445A-98C3-806CA96FEF75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF0D0B86-BA02-445A-98C3-806CA96FEF75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF0D0B86-BA02-445A-98C3-806CA96FEF75}.Release|x64.ActiveCfg = Release|x64
+		{CF0D0B86-BA02-445A-98C3-806CA96FEF75}.Release|x64.Build.0 = Release|x64
+		{FECCEAE7-F348-4F34-945A-5663D0D8107A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FECCEAE7-F348-4F34-945A-5663D0D8107A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FECCEAE7-F348-4F34-945A-5663D0D8107A}.Debug|x64.ActiveCfg = Debug|x64
+		{FECCEAE7-F348-4F34-945A-5663D0D8107A}.Debug|x64.Build.0 = Debug|x64
+		{FECCEAE7-F348-4F34-945A-5663D0D8107A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FECCEAE7-F348-4F34-945A-5663D0D8107A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FECCEAE7-F348-4F34-945A-5663D0D8107A}.Release|x64.ActiveCfg = Release|x64
+		{FECCEAE7-F348-4F34-945A-5663D0D8107A}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03BDB00A-A735-4AB1-A7F0-3BE757DD34FA}
 	EndGlobalSection
 EndGlobal

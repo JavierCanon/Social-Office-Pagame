@@ -1,0 +1,98 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Web.SiteMaster" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head runat="server">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="robots" content="none" />
+    <meta http-equiv="content-language" content="es" />
+    <meta name="author" content="Javier Cañon" />
+
+    <title>Social Office Pagame</title>
+
+    <link rel="stylesheet" href="<%# Web.SiteMaster.GetExternalCSS(this.Page) %>" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous" />
+    <link href="<%# Web.SiteMaster.GetMainStyleCSS(this.Page) %>" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="ContentHead" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form runat="server" id="formMain">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-success">
+                <div class="container">
+                    <div>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topMenu" aria-controls="topMenu" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <a class="navbar-brand" href="./"><%:Pagame.Global.Configuration.General.GetSitesTitleMenuLogo() %></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="topMenu">
+
+                        <dx:BootstrapMenu ID="TopMenu" runat="server" ShowPopOutImages="True" ItemAutoWidth="false" ClientInstanceName="topMenu">
+                            <CssClasses Control="top-menu" Menu="navbar-nav" />
+                            <Items>
+                                <dx:BootstrapMenuItem Text="Acerca de" Name="About" Target="_blank">
+                                </dx:BootstrapMenuItem>
+                                <dx:BootstrapMenuItem Text="Contacto" Name="Contact" Target="_blank">
+                                </dx:BootstrapMenuItem>
+                            </Items>
+                        </dx:BootstrapMenu>
+
+                    </div>
+                </div>
+            </nav>
+
+            <asp:ContentPlaceHolder ID="ContentHeader" runat="server">
+            </asp:ContentPlaceHolder>
+        </header>
+
+        <section>
+
+            <asp:ContentPlaceHolder ID="ContentMain" runat="server">
+            </asp:ContentPlaceHolder>
+        </section>
+    </form>
+    <section>
+        <asp:ContentPlaceHolder ID="ContentMain2" runat="server">
+        </asp:ContentPlaceHolder>
+    </section>
+
+    <footer>
+        <hr />
+        <asp:ContentPlaceHolder ID="ContentFooter" runat="server">
+        </asp:ContentPlaceHolder>
+        <p>
+            &copy; <%: DateTime.Now.Year %> - Social Office Pagame by <a href="https://www.xn--javiercaon-09a.com" target="_blank">JC</a>
+        </p>
+    </footer>
+
+    <% // hack css intellisense to work. Remove in production
+        if (Pagame.Global.Configuration.Development.GetIsEnabledDeveloperMode())
+            if (0 > 1)
+            {%>
+    <link runat="server" href="~/Content/Css/bootstrap.min.css" rel="stylesheet" />
+
+    <%} %>
+    <% if (HttpContext.Current.Request.IsLocal)
+        {%>
+    <script type="text/javascript" src="<%: Page.ResolveUrl("~/Scripts/jquery.min.js") %>"></script>
+    <script type="text/javascript" src="<%: Page.ResolveUrl("~/Scripts/popper.min.js") %>"></script>
+    <script type="text/javascript" src="<%: Page.ResolveUrl("~/Scripts/bootstrap.min.js") %>"></script>
+    <%}
+        else
+        {   %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <% } %>
+</body>
+</html>

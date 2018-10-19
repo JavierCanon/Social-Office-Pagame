@@ -259,3 +259,18 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+
+# exe libs
+libs/
+# sign key
+*.snk
+
+# custom files
+lib/
+Logs/
+*.licx*
+
+# project folders
+
+# temporary for private data:
+/src/SO.Pagame.Web/Web.config

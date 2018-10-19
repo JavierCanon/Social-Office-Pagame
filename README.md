@@ -1,18 +1,23 @@
 ﻿# SOCIAL OFFICE PAGAME #
 
+Social Office is a set free and open source tools (mainly in spanish) for Social Media Marketing, Digital Marketing, Social Managers, Community Managers, 
+by Javier Cañon: 
+ - EN (http://www.javiercanon.com) 
+ - ES (http://www.javiercañon.com)
+
+**Software in Spanish for Latinamerica**
+
 Este es una página web que sirve como botón de pagos, para que clientes pueden pagar facturas o recibos por intermedio de pasarelas de pago.
-
 Compatible con móviles Android y IOS, tablets y computadoras.
-
 La finalidad es que con cualquier editor de texto, se cambien algunas variables, y simplemente se suba la carpeta a un hosting.
-
 Se puede editar facilmente los colores y los estilos mediante CSS, lo cual requiere ya conocimientos mas avanzados.
 
-Social Office is a set free and open source tools for Social Media, Social Managers, Community Managers, by Javier Cañon (http://www.javiercanon.com) (http://www.javiercañon.com).
 
 ## Requerimientos ##
 
-* Cualquier servidor web para HTML.
+* Windows 8 o superior con Internet Information Server (IIS) 8 o superior.
+* .Net Framework 4.7.2.
+* Cualquier versión de Sql Server 2016 o superior.
 
 
 ## Instalación ##
@@ -50,6 +55,8 @@ Cree botones de pago utilizando HTML
 * ¿Necesito tener conocimientos de programación?: Necesitará conocimientos básicos de HTML.
 * ¿Cómo empiezo?: Cree un botón con nuestra herramienta de botones HTML en línea.
 
+## Screenshoots ##
+
 
 ## Community ##
 
@@ -60,6 +67,13 @@ Cree botones de pago utilizando HTML
 * Issue - Bug Traking (https://github.com/JavierCanon/Social-Office-Pagame/issues)
 
 
+## Roadmap ##
+
+* [Check this link](https://github.com/JavierCanon/Social-Office-Pagame/blob/master/ROADMAP.md)
+
+## Build Dependencies ##
+
+* Devexpress 18.1.4
 
 ## Authors ##
 

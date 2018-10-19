@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FECCEAE7-F348-4F34-945A-5663D0D8107A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pagame</RootNamespace>
+    <AssemblyName>SO.Pagame.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <Use64BitIISExpress>true</Use64BitIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabases>false</PublishDatabases>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.ASPxThemes.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.Resources.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="mercadopago, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\mercadopago.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Softcanon.DAL.4.x">
+      <HintPath>..\..\..\..\..\PROYECTOS_SOFTCANON_LIBRARIES\SOFTCANON.DAL\Softcanon.DAL.4.x\bin\x64\Release\Softcanon.DAL.4.x.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="DevExpress.Web.Bootstrap.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Offline.OFF.htm" />
+    <Content Include="Content\Css\bootstrap.min.css" />
+    <Content Include="Content\Css\Site-1.0.0.css" />
+    <Content Include="Content\Css\Site-1.0.0.min.css">
+      <DependentUpon>Site-1.0.0.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Img\epayco-pago-seguro.png" />
+    <Content Include="Content\Img\mercadopago-logo.png" />
+    <Content Include="Content\Img\mercadopago-pago-seguro.png" />
+    <Content Include="Default.aspx" />
+    <Content Include="DevTools\ApplicationVariables.aspx" />
+    <Content Include="DevTools\CultureInfo.aspx" />
+    <Content Include="DevTools\ServerVariables.aspx" />
+    <Content Include="Errors\ErrorBrowser.html" />
+    <Content Include="Errors\ErrorCallback.aspx" />
+    <Content Include="Errors\ErrorDBConfiguration.html" />
+    <Content Include="Errors\ErrorInstallation.aspx" />
+    <Content Include="Errors\ErrorInstallation.html" />
+    <Content Include="Errors\ErrorPageDefaultRedirect.aspx" />
+    <Content Include="Errors\ErrorPageGeneric.aspx" />
+    <Content Include="Errors\ErrorPageHttp.aspx" />
+    <Content Include="Errors\ErrorPageHttp403.aspx" />
+    <Content Include="Errors\ErrorPageHttp404.aspx" />
+    <Content Include="Errors\ErrorPermission.html" />
+    <Content Include="Errors\ErrorTimeout.html" />
+    <Content Include="Errors\ErrorWUCHead.ascx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Properties\licenses.licx.txt" />
+    <Content Include="robots.txt" />
+    <Content Include="robots.template.txt" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\popper.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Errors\ErrorMasterPage.Master" />
+    <Content Include="Errors\Web.config" />
+    <Content Include="DevTools\DevTools.Master" />
+    <Content Include="DevTools\Web.config" />
+    <Content Include="libman.json" />
+    <None Include="bundleconfig.json" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="Global.App.cs" />
+    <Content Include="Web\Login.aspx" />
+    <Content Include="Web\Payments\Anonymous.aspx" />
+    <Content Include="Web\Payments\Epayco_Basic.aspx" />
+    <Content Include="Web\Payments\Mercadopago_Basic.aspx" />
+    <Content Include="Web\Payments\Tests\MercadopagoJS.aspx" />
+    <Content Include="Web_Code\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DevTools\ApplicationVariables.aspx.cs">
+      <DependentUpon>ApplicationVariables.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DevTools\ApplicationVariables.aspx.designer.cs">
+      <DependentUpon>ApplicationVariables.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DevTools\CultureInfo.aspx.cs">
+      <DependentUpon>CultureInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DevTools\CultureInfo.aspx.designer.cs">
+      <DependentUpon>CultureInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DevTools\DevTools.Master.cs">
+      <DependentUpon>DevTools.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DevTools\DevTools.Master.designer.cs">
+      <DependentUpon>DevTools.Master</DependentUpon>
+    </Compile>
+    <Compile Include="DevTools\ServerVariables.aspx.cs">
+      <DependentUpon>ServerVariables.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DevTools\ServerVariables.aspx.designer.cs">
+      <DependentUpon>ServerVariables.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Errors\ErrorCallback.aspx.cs">
+      <DependentUpon>ErrorCallback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Errors\ErrorCallback.aspx.designer.cs">
+      <DependentUpon>ErrorCallback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Errors\ErrorInstallation.aspx.cs">
+      <DependentUpon>ErrorInstallation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Errors\ErrorInstallation.aspx.designer.cs">
+      <DependentUpon>ErrorInstallation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Errors\ErrorMasterPage.Master.cs">
+      <DependentUpon>ErrorMasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Errors\ErrorMasterPage.Master.designer.cs">
+      <DependentUpon>ErrorMasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Errors\ErrorPageDefaultRedirect.aspx.cs">
+      <DependentUpon>ErrorPageDefaultRedirect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Errors\ErrorPageDefaultRedirect.aspx.designer.cs">
+      <DependentUpon>ErrorPageDefaultRedirect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Errors\ErrorPageGeneric.aspx.cs">
+      <DependentUpon>ErrorPageGeneric.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Errors\ErrorPageGeneric.aspx.designer.cs">
+      <DependentUpon>ErrorPageGeneric.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Errors\ErrorPageHttp.aspx.cs">
+      <DependentUpon>ErrorPageHttp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Errors\ErrorPageHttp.aspx.designer.cs">
+      <DependentUpon>ErrorPageHttp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Errors\ErrorPageHttp403.aspx.cs">
+      <DependentUpon>ErrorPageHttp403.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Errors\ErrorPageHttp403.aspx.designer.cs">
+      <DependentUpon>ErrorPageHttp403.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Errors\ErrorPageHttp404.aspx.cs">
+      <DependentUpon>ErrorPageHttp404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Errors\ErrorPageHttp404.aspx.designer.cs">
+      <DependentUpon>ErrorPageHttp404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Errors\ErrorWUCHead.ascx.cs">
+      <DependentUpon>ErrorWUCHead.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Errors\ErrorWUCHead.ascx.designer.cs">
+      <DependentUpon>ErrorWUCHead.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Error.Designer.cs">
+      <DependentUpon>Error.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Error.es.designer.cs">
+      <DependentUpon>Error.es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Labels.designer.cs">
+      <DependentUpon>Labels.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Labels.es.designer.cs">
+      <DependentUpon>Labels.es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.master.cs">
+      <DependentUpon>Site.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.master.designer.cs">
+      <DependentUpon>Site.master</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Payments\Anonymous.aspx.cs">
+      <DependentUpon>Anonymous.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Payments\Anonymous.aspx.designer.cs">
+      <DependentUpon>Anonymous.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Payments\Epayco_Basic.aspx.cs">
+      <DependentUpon>Epayco_Basic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Payments\Epayco_Basic.aspx.designer.cs">
+      <DependentUpon>Epayco_Basic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Payments\Mercadopago_Basic.aspx.cs">
+      <DependentUpon>Mercadopago_Basic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Payments\Mercadopago_Basic.aspx.designer.cs">
+      <DependentUpon>Mercadopago_Basic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Payments\Tests\MercadopagoJS.aspx.cs">
+      <DependentUpon>MercadopagoJS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Payments\Tests\MercadopagoJS.aspx.designer.cs">
+      <DependentUpon>MercadopagoJS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web_Code\Global\Global.Configuration.cs" />
+    <Compile Include="Web_Code\Global\Global.cs" />
+    <Compile Include="Web_Code\Global\Global.DAL.cs" />
+    <Compile Include="Web_Code\Global\Global.Debug.cs" />
+    <Compile Include="Web_Code\Global\Global.Errors.cs" />
+    <Compile Include="Web_Code\Global\Global.Logs.cs" />
+    <Compile Include="Web_Code\Global\Global.Sessions.cs" />
+    <Compile Include="Web_Code\Global\Global.UI.cs" />
+    <Compile Include="Web_Code\Global\Global.Users.cs" />
+    <Compile Include="Web_Code\Global\Global.Utils.cs" />
+    <Compile Include="Web_Code\Global\Global.Version.cs" />
+    <Compile Include="Web_Code\Models\Debug\Debug.cs" />
+    <Compile Include="Web_Code\Models\Enums\Enums.cs" />
+    <Compile Include="Web_Code\Models\Errors\ExceptionUtility.cs" />
+    <Compile Include="Web_Code\Models\Security\MD5HashAlgorithm.cs" />
+    <Compile Include="Web_Code\Models\Versions.cs" />
+    <Compile Include="Web_Code\Models\AsyncTasks\SendEmail.cs" />
+    <Compile Include="Web_Code\Models\Enums\Security\UserEnum.cs" />
+    <Compile Include="Web_Code\Models\Security\Permissions.cs" />
+    <Compile Include="Web_Code\Models\Security\Recaptcha\Recaptcha2VerificationHelper.cs" />
+    <Compile Include="Web_Code\Models\Security\Recaptcha\Recaptcha2VerificationResult.cs" />
+    <Compile Include="Web_Code\Models\Security\Recaptcha\RecaptchaVerificationResult.cs" />
+    <Compile Include="Web_Code\Models\Security\SHA512HashAlgorithm.cs" />
+    <Compile Include="Web_Code\Models\Security\UserLogin.cs" />
+    <Compile Include="Web_Code\Models\Enums\Security\UserPermissionTypeEnum.cs" />
+    <Compile Include="Web_Code\Views\MasterPagesBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web_Code\Views\PageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web_Code\Views\PageBaseAdmin.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web_Code\Views\PageBaseCommon.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web_Code\Views\PageBaseGrid.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\Logs\" />
+    <Folder Include="DevTools\Images\" />
+    <Folder Include="Services\" />
+    <Folder Include="Web\Controls\" />
+    <Folder Include="Web_Code\Presenters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Error.es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Error.es.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Error.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Error.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Labels.es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Labels.es.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Labels.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Labels.designer.cs</LastGenOutput>
+    </Content>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60405</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://pagos.softcanon.com</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>xcopy "$(ProjectDir)Properties\licenses.licx.txt" "$(ProjectDir)\Properties\licenses.licx" /Y
+</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
