@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Pagame.Web.Payments {
+namespace Pagame.Web.Epayco {
     
     
-    public partial class Mercadopago_Basic {
+    public partial class Epayco_Basic {
         
         /// <summary>
         /// alert control.

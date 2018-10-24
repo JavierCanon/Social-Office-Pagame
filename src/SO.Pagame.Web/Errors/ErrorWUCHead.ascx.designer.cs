@@ -7,8 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SO.Errors
-{
+namespace Pagame.Errors {
     
     
     public partial class ErrorWUCHead {

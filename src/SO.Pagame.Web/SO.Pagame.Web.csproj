@@ -145,10 +145,13 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <Content Include="Global.App.cs" />
+    <Content Include="Web\Epayco\Confirm.aspx" />
+    <Content Include="Web\Epayco\Epayco_Open.aspx" />
+    <Content Include="Web\Epayco\Response.aspx" />
     <Content Include="Web\Login.aspx" />
     <Content Include="Web\Payments\Anonymous.aspx" />
-    <Content Include="Web\Payments\Epayco_Basic.aspx" />
-    <Content Include="Web\Payments\Mercadopago_Basic.aspx" />
+    <Content Include="Web\Epayco\Epayco_Basic.aspx" />
+    <Content Include="Web\Mercadopago\Mercadopago_Basic.aspx" />
     <Content Include="Web\Payments\Tests\MercadopagoJS.aspx" />
     <Content Include="Web_Code\Web.config" />
   </ItemGroup>
@@ -282,6 +285,27 @@
     <Compile Include="Site.master.designer.cs">
       <DependentUpon>Site.master</DependentUpon>
     </Compile>
+    <Compile Include="Web\Epayco\Confirm.aspx.cs">
+      <DependentUpon>Confirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Epayco\Confirm.aspx.designer.cs">
+      <DependentUpon>Confirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Epayco\Epayco_Open.aspx.cs">
+      <DependentUpon>Epayco_Open.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Epayco\Epayco_Open.aspx.designer.cs">
+      <DependentUpon>Epayco_Open.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Epayco\Response.aspx.cs">
+      <DependentUpon>Response.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Epayco\Response.aspx.designer.cs">
+      <DependentUpon>Response.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -296,18 +320,18 @@
     <Compile Include="Web\Payments\Anonymous.aspx.designer.cs">
       <DependentUpon>Anonymous.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Payments\Epayco_Basic.aspx.cs">
+    <Compile Include="Web\Epayco\Epayco_Basic.aspx.cs">
       <DependentUpon>Epayco_Basic.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Payments\Epayco_Basic.aspx.designer.cs">
+    <Compile Include="Web\Epayco\Epayco_Basic.aspx.designer.cs">
       <DependentUpon>Epayco_Basic.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Payments\Mercadopago_Basic.aspx.cs">
+    <Compile Include="Web\Mercadopago\Mercadopago_Basic.aspx.cs">
       <DependentUpon>Mercadopago_Basic.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Payments\Mercadopago_Basic.aspx.designer.cs">
+    <Compile Include="Web\Mercadopago\Mercadopago_Basic.aspx.designer.cs">
       <DependentUpon>Mercadopago_Basic.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\Payments\Tests\MercadopagoJS.aspx.cs">

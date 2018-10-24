@@ -1,7 +1,28 @@
-﻿using Pagame.Models.Security;
+﻿// Copyright (c) 2018 Javier Cañon 
+// https://www.javiercanon.com 
+// https://www.xn--javiercaon-09a.com
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to
+// deal in the Software without restriction, including without limitation the
+// rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+// sell copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+// IN THE SOFTWARE.
+using Pagame.Models.Security;
 using System;
 
-namespace Pagame.Web.Payments
+namespace Pagame.Web.Epayco
 {
     public partial class Epayco_Basic : System.Web.UI.Page
     {
@@ -21,23 +42,30 @@ namespace Pagame.Web.Payments
         p_email,
         p_currency_code,
         p_signature,
-        p_test_request;
+        p_test_request,
+        p_url_response,
+        p_url_confirmation
+        ;
 
         void SetupForm()
         {
 
             //TODO: get data from db. Custom reponse and confirmation URL's.
+            //TODO: IVA
 
             p_cust_id_cliente = Global.Configuration.Payments.Epayco.Basic.GetClientID();
             p_key = Global.Configuration.Payments.Epayco.Basic.GetPublicKey();
             p_id_invoice = Session["Payment_ID"].ToString();
             p_description = "Factura " + Session["Payment_ID"].ToString();
             p_amount = Session["Payment_Total"].ToString();
-            p_amount_base = Session["Payment_Total"].ToString();
+            p_amount_base = "0";
             p_tax = "0";
             p_email = Session["Payment_Email"].ToString();
             p_currency_code = Global.Configuration.Payments.GetCurrencyDefault();
             p_test_request = Global.Configuration.Development.GetIsEnabledDeveloperMode() ? "true" : "false";
+
+            p_url_response = Global.Configuration.Payments.Epayco.GetURLResponse();
+            p_url_confirmation = Global.Configuration.Payments.Epayco.GetURLConfirmation();
 
             p_signature = GenerateSignature(p_cust_id_cliente, p_key, p_id_invoice, p_amount, p_currency_code);
 
@@ -88,8 +116,8 @@ p_billing_cellphone	No	Celular comprador
              separadas por el carácter '^'
              */
 
-        return MD5HashAlgorithm.CreateMD5Hash(
-            p_cust_id_cliente + "^" + p_key + "^" + p_id_invoice + "^" + p_amount + "^" + p_currency_code);
+            return MD5HashAlgorithm.CreateMD5Hash(
+                p_cust_id_cliente + "^" + p_key + "^" + p_id_invoice + "^" + p_amount + "^" + p_currency_code);
 
         }
 
