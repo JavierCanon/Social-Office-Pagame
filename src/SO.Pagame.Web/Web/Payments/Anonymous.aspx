@@ -21,6 +21,7 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 --%>
+
 <%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="Anonymous.aspx.cs" Inherits="Pagame.Web.Payments.Anonymous" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentHead" runat="server">
@@ -39,14 +40,15 @@
                     <dx:BootstrapLayoutGroup Caption="1. Identificación del pago">
                         <Items>
 
-                            <dx:BootstrapLayoutItem Caption="Código Cliente" ColSpanMd="12">
+                            <dx:BootstrapLayoutItem Caption="Cód. Cliente" ColSpanMd="12">
                                 <ContentCollection>
                                     <dx:ContentControl runat="server">
                                         <dx:BootstrapTextBox runat="server" ID="txtCodCliente" MaxLength="60"
-                                            HelpText="Código unico del cliente en el sistema">
+                                            HelpText="Código unico del cliente en el sistema (NIT, CC)" DisplayFormatString="n0">
 
-                                            <ValidationSettings CausesValidation="true" RequiredField-IsRequired="true"
+                                            <ValidationSettings CausesValidation="true" RequiredField-IsRequired="true" ErrorDisplayMode="ImageWithText"
                                                 ValidationGroup="Pay">
+                                                <RegularExpression ValidationExpression="^\d{1,20}(?:\.\d{0,0})?$" ErrorText="Valor numerico no valido." />
                                             </ValidationSettings>
                                         </dx:BootstrapTextBox>
                                     </dx:ContentControl>
@@ -56,11 +58,12 @@
                             <dx:BootstrapLayoutItem Caption="Referencia Pago" BeginRow="true" ColSpanMd="12">
                                 <ContentCollection>
                                     <dx:ContentControl runat="server">
-                                        <dx:BootstrapTextBox runat="server" ID="txtCodPago" MaxLength="30"
+                                        <dx:BootstrapTextBox runat="server" ID="txtCodPago" MaxLength="30" DisplayFormatString="n0"
                                             HelpText="Número de factura, recibo, comprobante, etc. a pagar.">
 
-                                            <ValidationSettings CausesValidation="true" RequiredField-IsRequired="true"
+                                            <ValidationSettings CausesValidation="true" RequiredField-IsRequired="true" ErrorDisplayMode="ImageWithText"
                                                 ValidationGroup="Pay">
+                                                <RegularExpression ValidationExpression="^\d{1,20}(?:\.\d{0,0})?$" ErrorText="Valor numerico no valido." />
                                             </ValidationSettings>
                                         </dx:BootstrapTextBox>
 
@@ -72,9 +75,11 @@
                                 <ContentCollection>
                                     <dx:ContentControl runat="server">
 
-                                        <dx:BootstrapTextBox runat="server" ID="txtMontoPago"
-                                            HelpText="Monto total a pagar, presione validar para consultar." ReadOnly="true" DisplayFormatString="n0">
+                                        <dx:BootstrapTextBox runat="server" ID="txtMontoPago" 
+                                            HelpText="Monto total a pagar, presione validar para consultar." ReadOnly="true"
+                                            DisplayFormatString="c2">                                            
                                             <ValidationSettings RequiredField-IsRequired="true" ValidationGroup="Gateway"></ValidationSettings>
+                                            <CssClasses Control="total" />
                                         </dx:BootstrapTextBox>
 
                                     </dx:ContentControl>
@@ -122,20 +127,20 @@
                                 <ContentCollection>
                                     <dx:ContentControl runat="server">
 
-                                        <dx:BootstrapImage runat="server" ID="imgEpayco" EnableViewState="false" CssClasses-Control="img-payment"
+                                        <dx:BootstrapImage runat="server" ID="imgEpayco" CssClasses-Control="img-payment"
                                             ImageUrl="~/Content/Img/epayco-pago-seguro.png" Width="538" Height="100">
                                         </dx:BootstrapImage>
 
-                                        <dx:BootstrapHyperLink runat="server" ID="lnkEpayco" EnableViewState="false" NavigateUrl="https://epayco.co/"
+                                        <dx:BootstrapHyperLink runat="server" ID="lnkEpayco" NavigateUrl="https://epayco.co/"
                                             Target="_blank"
                                             Text="Todas las formas de pago Payco" Badge-IconCssClass="fas fa-external-link-alt">
                                         </dx:BootstrapHyperLink>
 
-                                        <dx:BootstrapImage runat="server" ID="imgMercadopago" EnableViewState="false" CssClasses-Control="img-payment"
+                                        <dx:BootstrapImage runat="server" ID="imgMercadopago" CssClasses-Control="img-payment"
                                             ImageUrl="~/Content/Img/mercadopago-pago-seguro.png" Width="538" Height="159">
                                         </dx:BootstrapImage>
 
-                                        <dx:BootstrapHyperLink runat="server" ID="lnkMercadopago" EnableViewState="false" NavigateUrl="https://www.mercadopago.com.co/ayuda/medios-de-pago-tarjeta-credito-cuotas_1795"
+                                        <dx:BootstrapHyperLink runat="server" ID="lnkMercadopago" NavigateUrl="https://www.mercadopago.com.co/ayuda/medios-de-pago-tarjeta-credito-cuotas_1795"
                                             Target="_blank"
                                             Text="Todas las formas y límites montos de pago en Mercadopago" Badge-IconCssClass="fas fa-external-link-alt">
                                         </dx:BootstrapHyperLink>
@@ -149,7 +154,7 @@
 
                                                 <dx:BootstrapListEditItem Text="ePayco" Value="Epayco">
                                                 </dx:BootstrapListEditItem>
-                                                    --%>
+                                                --%>
                                             </Items>
                                             <ValidationSettings CausesValidation="true" ValidationGroup="Gateway" RequiredField-IsRequired="true">
                                             </ValidationSettings>

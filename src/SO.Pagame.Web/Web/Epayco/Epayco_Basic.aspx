@@ -74,7 +74,7 @@
                 Para confirmar haga click en el siguiente botón, y será redirigido a la pasarela
                 para que realice un pago seguro, no almacenamos ningún dato confidencial.
             </p>
-            <a class="btn btn-lg btn-info" href="Anonymous.aspx">Volver</a>
+            <a class="btn btn-lg btn-info" href="<%: ResolveUrl("~/") %>">Volver</a>
             <button type="submit" class="btn btn-lg btn-success" >Pagar</button>
         </form>
 

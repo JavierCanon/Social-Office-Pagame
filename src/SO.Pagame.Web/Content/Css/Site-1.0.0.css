@@ -69,3 +69,12 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.readonly {
+    background-color: lightgray !important;
+}
+
+.total {
+    background-color: lightgray !important;
+    font-weight: bold;
+}

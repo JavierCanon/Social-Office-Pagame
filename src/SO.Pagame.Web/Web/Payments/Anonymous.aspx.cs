@@ -50,12 +50,15 @@ namespace Pagame.Web.Payments
         void SetupGateways() {
 
             //radioPaymentGateway.Items.Clear();
-
-            if (ViewState["setuppg"] != null)
+            if (ViewState["setuppg"] == null)
             {
                 if (Global.Configuration.Payments.Mercadopago.GetIsEnabled())
                 {
                     radioPaymentGateway.Items.Add("MercadoPago", "Mercadopago");
+                    imgMercadopago.Visible = true;
+                    lnkMercadopago.Visible = true;
+                }
+                else {
                     imgMercadopago.Visible = false;
                     lnkMercadopago.Visible = false;
                 }
@@ -63,10 +66,15 @@ namespace Pagame.Web.Payments
                 if (Global.Configuration.Payments.Epayco.GetIsEnabled())
                 {
                     radioPaymentGateway.Items.Add("ePayco", "Epayco");
+                    imgEpayco.Visible = true;
+                    lnkEpayco.Visible = true;
+                }
+                else {
                     imgEpayco.Visible = false;
                     lnkEpayco.Visible = false;
                 }
             }
+
             ViewState["setuppg"] = "1";
         }
 

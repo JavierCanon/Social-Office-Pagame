@@ -31,7 +31,7 @@
                             aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <a class="navbar-brand" href="./"><%:Pagame.Global.Configuration.General.GetSitesTitleMenuLogo() %></a>
+                        <a class="navbar-brand" href="<%: ResolveUrl("~/") %>"><%:Pagame.Global.Configuration.General.GetSitesTitleMenuLogo() %></a>
                     </div>
                     <div class="collapse navbar-collapse" id="topMenu">
 
@@ -40,8 +40,16 @@
                             <Items>
                                 <dx:BootstrapMenuItem Text="Acerca de" Name="About" Target="_blank">
                                 </dx:BootstrapMenuItem>
+
                                 <dx:BootstrapMenuItem Text="Contacto" Name="Contact" Target="_blank">
                                 </dx:BootstrapMenuItem>
+
+                                <dx:BootstrapMenuItem Text="Pagar Factura" Name="PayInvoice" NavigateUrl="~/Web/Payments/Anonymous.aspx">
+                                </dx:BootstrapMenuItem>
+
+                                <dx:BootstrapMenuItem Text="Otros Pagos" Name="PayOpen" NavigateUrl="~/Web/Epayco/Epayco_Open.aspx">
+                                </dx:BootstrapMenuItem>
+
                             </Items>
                         </dx:BootstrapMenu>
 
