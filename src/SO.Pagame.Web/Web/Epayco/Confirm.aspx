@@ -21,14 +21,7 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 --%>
-<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="Confirm.aspx.cs" Inherits="Pagame.Web.Epayco.Confirm" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentHead" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentHeader" runat="server">
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentMain" runat="server">
-</asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="ContentMain2" runat="server">
-</asp:Content>
-<asp:Content ID="Content5" ContentPlaceHolderID="ContentFooter" runat="server">
-</asp:Content>
+<%@ Page Title="" Language="C#" EnableSessionState="False" EnableViewState="false"
+    EnableEventValidation="false" EnableTheming="false" EnableViewStateMac="false"
+    CodeBehind="Confirm.aspx.cs" Inherits="Pagame.Web.Epayco.Confirm" %>
+
